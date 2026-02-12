@@ -1,0 +1,38 @@
+window#waybar {
+    background: transparent;
+}
+
+/* Floating Sections */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: #111418;
+    color: #e1e2e8;
+    border-radius: 14px;
+    padding: 4px 12px;
+    margin: 6px;
+}
+
+/* Workspaces */
+#workspaces button {
+    padding: 0 8px;
+    border-radius: 10px;
+    margin: 0 3px;
+    color: #e1e2e8;
+}
+
+#workspaces button.active {
+    background: #a1cafd;
+    color: #003259;
+}
+
+/* Clock */
+#clock {
+    font-weight: bold;
+    color: #bbc7db;
+}
+
+/* Network */
+#network {
+    color: #d7bee4;
+}

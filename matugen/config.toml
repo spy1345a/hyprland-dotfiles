@@ -1,0 +1,10 @@
+[config]
+reload_apps = false
+
+[templates.waybar]
+input_path = "~/.config/matugen/templates/waybar.css"
+output_path = "~/.config/waybar/matugen.css"
+
+[templates.gtk]
+input_path = "~/.config/matugen/templates/gtk.css"
+output_path = "~/.config/gtk-3.0/colors.css"

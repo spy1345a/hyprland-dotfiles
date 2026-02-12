@@ -1,0 +1,36 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 36,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["network"],
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "persistent-workspaces": {
+      "*": 3
+    },
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "default": ""
+    }
+  },
+
+  "clock": {
+    "format": "{:%I:%M:%S %p}",
+    "tooltip-format": "{:%A, %d %B %Y}",
+    "interval": 1
+  },
+
+  "network": {
+    "format-wifi": "{ipaddr}  ↓{bandwidthDownBits} ↑{bandwidthUpBits}",
+    "format-ethernet": "  {ipaddr}    ↓{bandwidthDownBits} ↑{bandwidthUpBits}",
+    "interval": 1
+  }
+}
+

@@ -1,0 +1,38 @@
+window#waybar {
+    background: transparent;
+}
+
+/* Floating Sections */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: {{colors.surface.default.hex}};
+    color: {{colors.on_surface.default.hex}};
+    border-radius: 14px;
+    padding: 4px 12px;
+    margin: 6px;
+}
+
+/* Workspaces */
+#workspaces button {
+    padding: 0 8px;
+    border-radius: 10px;
+    margin: 0 3px;
+    color: {{colors.on_surface.default.hex}};
+}
+
+#workspaces button.active {
+    background: {{colors.primary.default.hex}};
+    color: {{colors.on_primary.default.hex}};
+}
+
+/* Clock */
+#clock {
+    font-weight: bold;
+    color: {{colors.secondary.default.hex}};
+}
+
+/* Network */
+#network {
+    color: {{colors.tertiary.default.hex}};
+}
