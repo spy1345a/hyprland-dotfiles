@@ -6,8 +6,8 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-    background: #11140f;
-    color: #e1e4da;
+    background: #0f1416;
+    color: #dee3e6;
     border-radius: 14px;
     padding: 4px 14px;
     margin: 6px;
@@ -18,35 +18,35 @@ window#waybar {
     padding: 0 8px;
     border-radius: 10px;
     margin: 0 3px;
-    color: #e1e4da;
+    color: #dee3e6;
 }
 
 #workspaces button.active {
-    background: #a7d293;
-    color: #143809;
+    background: #87d1eb;
+    color: #003543;
 }
 
 /* Clock */
 #clock {
     font-weight: bold;
-    color: #bccbb1;
+    color: #b3cad4;
     margin: 0 8px;
 }
 
 /* Network */
 #network {
-    color: #a0cfd1;
+    color: #c2c3eb;
     margin-right: 12px;   /* spacing before volume */
 }
 
 /* Volume */
 #pulseaudio {
-    color: #a7d293;
+    color: #87d1eb;
     margin-left: 4px;
     padding: 0 6px;
     border-radius: 8px;
 }
 
 #pulseaudio:hover {
-    background: #2b4f1e;
+    background: #004e60;
 }
