@@ -1,8 +1,9 @@
 #!/bin/bash
 
 WALL_DIR="$HOME/Pictures/wallpapers"
+SIGNAL_FILE="/tmp/wallpaper_reload"
 
-while true; do
+change_wallpaper() {
     IMG=$(find "$WALL_DIR" -type f | shuf -n 1)
 
     echo "Changing to $IMG"
@@ -16,6 +17,17 @@ while true; do
     echo "Restarting waybar"
     killall waybar
     waybar &
+}
 
-    sleep 300
+while true; do
+    change_wallpaper
+
+    for i in {1..300}; do
+        if [ -f "$SIGNAL_FILE" ]; then
+            echo "Manual reload triggered"
+            rm "$SIGNAL_FILE"
+            break
+        fi
+        sleep 1
+    done
 done
