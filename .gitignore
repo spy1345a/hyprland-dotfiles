@@ -1,0 +1,23 @@
+# Ignore cache files
+**/*.cache
+**/cache/
+**/*.log
+
+# Ignore hyprland runtime files
+hypr/*.socket
+hypr/*.lock
+
+# Ignore waybar state files
+waybar/*.bak
+
+# Ignore waybar maruget css
+waybar/matugen.css
+
+# Ignore backup files
+**/*~
+**/*.swp
+
+# Ignore gtk css
+gtk-3.0/*.css
+
+
