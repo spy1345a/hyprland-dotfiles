@@ -1,8 +1,9 @@
 #!/bin/bash
 
+export PATH=/usr/bin:/bin:/usr/local/bin
+
 CONFIG_DIR="$HOME/.config"
 DOTFILES_DIR="$HOME/dotfiles"
-
 WATCH_FOLDERS=("hypr" "waybar" "matugen" "gtk-3.0" "kitty")
 
 notify-send "Dotfiles Watcher" "Started watching ~/.config"
@@ -21,10 +22,13 @@ do
 
             if ! git diff --cached --quiet; then
                 COMMIT_MSG="Auto backup: $(date '+%Y-%m-%d %H:%M:%S')"
-                git commit -m "$COMMIT_MSG" >/dev/null 2>&1
-                git push >/dev/null 2>&1
+                git commit -m "$COMMIT_MSG"
 
-                notify-send "Dotfiles Backed Up ✅" "$folder updated and pushed"
+                if git push; then
+                    notify-send "Dotfiles Backed Up ✅" "$folder pushed successfully"
+                else
+                    notify-send "Dotfiles Push Failed ❌" "Check SSH or remote"
+                fi
             fi
 
             break
