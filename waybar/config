@@ -5,19 +5,21 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["network"],
+  "modules-right": ["network",  "pulseaudio"],
 
   "hyprland/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
     "persistent-workspaces": {
-      "*": 3
+      "*": 5
     },
     "format-icons": {
       "1": "",
       "2": "",
       "3": "",
-      "default": ""
+      "4": "󰎇",
+      "5": "󱦉",
+"default": ""
     }
   },
 
@@ -28,9 +30,17 @@
   },
 
   "network": {
-    "format-wifi": "{ipaddr}  ↓{bandwidthDownBits} ↑{bandwidthUpBits}",
-    "format-ethernet": "  {ipaddr}    ↓{bandwidthDownBits} ↑{bandwidthUpBits}",
+    "format-wifi": "󱦂 {ipaddr}  ↓{bandwidthDownBits} ↑{bandwidthUpBits}",
+    "format-ethernet": "󱦂 {ipaddr}  ↓{bandwidthDownBits} ↑{bandwidthUpBits}",
     "interval": 1
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟  muted",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol"
   }
 }
-
