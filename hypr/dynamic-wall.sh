@@ -14,8 +14,10 @@ change_wallpaper() {
     echo "Running matugen"
     matugen image "$IMG"
 
-    echo "Reloading waybar"
-    pkill -SIGUSR2 waybar
+    echo "Restarting waybar"
+    killall waybar
+    sleep 0.5
+    waybar &
 }
 
 while true; do
