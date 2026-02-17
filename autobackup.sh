@@ -13,7 +13,10 @@ WATCH_FOLDERS=("hypr" "waybar" "matugen" "gtk-3.0" "kitty")
 
 notify-send -t 2000 "Dotfiles Watcher" "Started watching ~/.config"
 
+sleep 1
+
 inotifywait -m -r -e modify,create,delete --format '%w%f' "$CONFIG_DIR" |
+
 while read FILE
 do
     for folder in "${WATCH_FOLDERS[@]}"; do
