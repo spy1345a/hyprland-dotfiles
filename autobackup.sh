@@ -9,7 +9,7 @@ export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/githubkey -o IdentitiesOnly=yes"
 CONFIG_DIR="$HOME/.config"
 DOTFILES_DIR="$HOME/dotfiles"
 
-WATCH_FOLDERS=("hypr" "waybar" "matugen" "gtk-3.0" "kitty")
+WATCH_FOLDERS=("hypr" "waybar" "matugen" "gtk-3.0" "kitty" "fish" "gtk-4.0" )
 
 notify-send -t 2000 "Dotfiles Watcher" "Started watching ~/.config"
 
