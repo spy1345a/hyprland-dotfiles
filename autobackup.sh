@@ -5,8 +5,6 @@
 # -----------------------------
 
 export PATH=/usr/bin:/bin
-
-# Use SSH key directly
 export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/githubkey -o IdentitiesOnly=yes"
 
 CONFIG_DIR="$HOME/.config"
@@ -27,6 +25,11 @@ LOCKFILE="/tmp/dotfiles-watcher.lock"
 notify-send -t 2000 "Dotfiles Watcher" "Started watching ~/.config"
 
 # -----------------------------
+# Ensure base dotfiles dir exists
+# -----------------------------
+mkdir -p "$DOTFILES_DIR"
+
+# -----------------------------
 # Watch Files
 # -----------------------------
 
@@ -43,7 +46,19 @@ do
 
             echo "Change detected in $folder"
 
-            # ---- Debounce (avoid spam commits) ----
+            TARGET_DIR="$DOTFILES_DIR/$folder"
+            SOURCE_DIR="$CONFIG_DIR/$folder"
+
+            # ---- Auto-create directory if missing ----
+            if [ ! -d "$TARGET_DIR" ]; then
+                mkdir -p "$TARGET_DIR"
+
+                notify-send -t 3000 \
+                "Dotfiles Initialized 📁" \
+                "Created $folder directory"
+            fi
+
+            # ---- Debounce ----
             if [ -f "$LOCKFILE" ]; then
                 continue
             fi
@@ -53,8 +68,8 @@ do
             (
                 sleep 2
 
-                rm -rf "$DOTFILES_DIR/$folder"
-                cp -r "$CONFIG_DIR/$folder" "$DOTFILES_DIR/"
+                rm -rf "$TARGET_DIR"
+                cp -r "$SOURCE_DIR" "$DOTFILES_DIR/"
 
                 cd "$DOTFILES_DIR" || exit
 
